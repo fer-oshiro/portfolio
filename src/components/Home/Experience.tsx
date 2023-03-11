@@ -9,26 +9,28 @@ import suporte_user from "@/assets/suporte_user.png";
 import plus_optimizer from "@/assets/plus_optimizer.png";
 import plus_rota from "@/assets/plus_rota.png";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import {
   AiOutlineDoubleLeft,
   AiOutlineDoubleRight,
-  AiOutlineRight,
+  AiOutlineRight
 } from "react-icons/ai";
 import Modal from "../common/Modal";
 
 const img = {
-  "1": mm_home,
-  "2": mm_agendamento,
-  "3": mm_trajeto,
-  "4": suporte_home,
-  "5": suporte_user,
-  "6": suporte_chat,
-  "7": plus_rota,
-  "8": plus_optimizer,
+  1: mm_home,
+  2: mm_agendamento,
+  3: mm_trajeto,
+  4: suporte_home,
+  5: suporte_user,
+  6: suporte_chat,
+  7: plus_rota,
+  8: plus_optimizer,
 };
+
+type keys = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 const slashMotion = {
   rest: { ease: "easeOut", duration: 0.2, type: "tween" },
@@ -47,7 +49,7 @@ const slashMotion = {
 };
 
 export default function Exp() {
-  const [selectedId, setSelectedId] = useState<"1" | "2" | "3" | null>(null);
+  const [selectedId, setSelectedId] = useState<keys | null>(null);
   console.log(selectedId);
 
   return (
@@ -121,7 +123,7 @@ export default function Exp() {
                 <div className="mx-auto w-fit text-center">
                   <div className="flex gap-4 overflow-auto md:overflow-hidden py-8">
                     <Image
-                      onClick={() => setSelectedId("1")}
+                      onClick={() => setSelectedId(1)}
                       className="w-auto object-contain h-60"
                       src={mm_home}
                       width={300}
@@ -130,7 +132,7 @@ export default function Exp() {
                     />
 
                     <Image
-                      onClick={() => setSelectedId("2")}
+                      onClick={() => setSelectedId(2)}
                       className="w-auto object-contain h-60"
                       src={mm_agendamento}
                       width={300}
@@ -138,7 +140,7 @@ export default function Exp() {
                       alt="Site MadeiraMadeira para cliente com 3 produtos para ser agendado"
                     />
                     <Image
-                      onClick={() => setSelectedId("3")}
+                      onClick={() => setSelectedId(3)}
                       className="w-auto object-contain h-60"
                       src={mm_trajeto}
                       width={300}
@@ -166,7 +168,7 @@ export default function Exp() {
                 <div className="mx-auto w-fit text-center overflow-auto">
                   <div className="flex gap-8 py-8">
                     <Image
-                      onClick={() => setSelectedId("4")}
+                      onClick={() => setSelectedId(4)}
                       className="w-auto object-contain h-48"
                       src={suporte_home}
                       width={300}
@@ -175,7 +177,7 @@ export default function Exp() {
                     />
 
                     <Image
-                      onClick={() => setSelectedId("5")}
+                      onClick={() => setSelectedId(5)}
                       className="w-auto object-contain h-48"
                       src={suporte_user}
                       width={300}
@@ -183,7 +185,7 @@ export default function Exp() {
                       alt="Site MadeiraMadeira para cliente com 3 produtos para ser agendado"
                     />
                     <Image
-                      onClick={() => setSelectedId("6")}
+                      onClick={() => setSelectedId(6)}
                       className="w-auto object-contain h-48"
                       src={suporte_chat}
                       width={300}
@@ -252,7 +254,7 @@ export default function Exp() {
               <div className="mx-auto w-fit text-center">
                 <div className="flex gap-4 overflow-auto md:overflow-hidden py-8">
                   <Image
-                    onClick={() => setSelectedId("7")}
+                    onClick={() => setSelectedId(7)}
                     className="w-auto object-contain h-60"
                     src={plus_rota}
                     width={300}
@@ -260,7 +262,7 @@ export default function Exp() {
                     alt="Site MadeiraMadeira para cliente na página inicial com dois produtos para ser agendado a data de montagem"
                   />
                   <Image
-                    onClick={() => setSelectedId("8")}
+                    onClick={() => setSelectedId(8)}
                     className="w-auto object-contain h-60"
                     src={plus_optimizer}
                     width={1200}
@@ -281,18 +283,18 @@ export default function Exp() {
         animate="rest"
       >
         <span>Currículo completo</span>
-        <motion.span className="absolute right-8" variants={slashMotion}>
+        <motion.span className="absolute right-8" variants={slashMotion as Variants }>
           <AiOutlineRight />
         </motion.span>
       </motion.a>
       <Modal isOpen={selectedId !== null} onClose={() => setSelectedId(null)}>
         <div className="flex gap-2 items-center h-full">
-          {selectedId !== "1" && (
+          {selectedId !== 1 && (
             <motion.div
               className="cursor-pointer absolute left-5 w-16"
               onClick={() => {
                 const number = Number(selectedId) - 1;
-                setSelectedId(number.toString());
+                setSelectedId(number as keys);
               }}
             >
               <AiOutlineDoubleLeft className="mx-auto" />
@@ -308,12 +310,12 @@ export default function Exp() {
               alt="Site MadeiraMadeira para cliente na página inicial com dois produtos para ser agendado a data de montagem"
             />
           )}
-          {selectedId !== "8" && (
+          {selectedId !== 8 && (
             <motion.div
               className="cursor-pointer absolute right-5 w-16"
               onClick={() => {
                 const number = Number(selectedId) + 1;
-                setSelectedId(number.toString());
+                setSelectedId(number as keys);
               }}
             >
               <AiOutlineDoubleRight className="mx-auto" />

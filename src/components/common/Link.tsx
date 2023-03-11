@@ -1,4 +1,4 @@
-import { motion, Transition } from "framer-motion";
+import { motion, Transition, Variants } from "framer-motion";
 
 interface Props {
   href: string;
@@ -7,7 +7,7 @@ interface Props {
   className?: string;
 }
 
-const draw = {
+const draw: Variants = {
   hidden: { pathLength: 0, opacity: 0 },
   visible: (i) => {
     const delay = 1 + i * 0.5;
