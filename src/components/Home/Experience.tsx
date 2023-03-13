@@ -15,7 +15,7 @@ import { useState } from "react";
 import {
   AiOutlineDoubleLeft,
   AiOutlineDoubleRight,
-  AiOutlineRight
+  AiOutlineRight,
 } from "react-icons/ai";
 import Modal from "../common/Modal";
 
@@ -54,7 +54,7 @@ export default function Exp() {
 
   return (
     <section id="experience" className="pt-16 p-8 md:p-16">
-      <h1 className="text-5xl md:text-6xl font-semibold">Experiênce</h1>
+      <h1 className="text-5xl md:text-6xl font-semibold">Experiência</h1>
       <div>
         <div>
           <h2 className="text-2xl md:text-4xl font-semibold pt-8">
@@ -124,7 +124,7 @@ export default function Exp() {
                   <div className="flex gap-4 overflow-auto md:overflow-hidden py-8">
                     <Image
                       onClick={() => setSelectedId(1)}
-                      className="w-auto object-contain h-60"
+                      className="w-auto object-contain h-60 cursor-pointer"
                       src={mm_home}
                       width={300}
                       height={300}
@@ -133,7 +133,7 @@ export default function Exp() {
 
                     <Image
                       onClick={() => setSelectedId(2)}
-                      className="w-auto object-contain h-60"
+                      className="w-auto object-contain h-60 cursor-pointer"
                       src={mm_agendamento}
                       width={300}
                       height={300}
@@ -141,7 +141,7 @@ export default function Exp() {
                     />
                     <Image
                       onClick={() => setSelectedId(3)}
-                      className="w-auto object-contain h-60"
+                      className="w-auto object-contain h-60 cursor-pointer"
                       src={mm_trajeto}
                       width={300}
                       height={300}
@@ -169,7 +169,7 @@ export default function Exp() {
                   <div className="flex gap-8 py-8">
                     <Image
                       onClick={() => setSelectedId(4)}
-                      className="w-auto object-contain h-48"
+                      className="w-auto object-contain h-48 cursor-pointer"
                       src={suporte_home}
                       width={300}
                       height={300}
@@ -178,7 +178,7 @@ export default function Exp() {
 
                     <Image
                       onClick={() => setSelectedId(5)}
-                      className="w-auto object-contain h-48"
+                      className="w-auto object-contain h-48 cursor-pointer"
                       src={suporte_user}
                       width={300}
                       height={300}
@@ -186,7 +186,7 @@ export default function Exp() {
                     />
                     <Image
                       onClick={() => setSelectedId(6)}
-                      className="w-auto object-contain h-48"
+                      className="w-auto object-contain h-48 cursor-pointer"
                       src={suporte_chat}
                       width={300}
                       height={300}
@@ -255,7 +255,7 @@ export default function Exp() {
                 <div className="flex gap-4 overflow-auto md:overflow-hidden py-8">
                   <Image
                     onClick={() => setSelectedId(7)}
-                    className="w-auto object-contain h-60"
+                    className="w-auto object-contain h-60 cursor-pointer"
                     src={plus_rota}
                     width={300}
                     height={300}
@@ -263,7 +263,7 @@ export default function Exp() {
                   />
                   <Image
                     onClick={() => setSelectedId(8)}
-                    className="w-auto object-contain h-60"
+                    className="w-auto object-contain h-60 cursor-pointer"
                     src={plus_optimizer}
                     width={1200}
                     height={900}
@@ -283,13 +283,16 @@ export default function Exp() {
         animate="rest"
       >
         <span>Currículo completo</span>
-        <motion.span className="absolute right-8" variants={slashMotion as Variants }>
+        <motion.span
+          className="absolute right-8"
+          variants={slashMotion as Variants}
+        >
           <AiOutlineRight />
         </motion.span>
       </motion.a>
       <Modal isOpen={selectedId !== null} onClose={() => setSelectedId(null)}>
         <div className="flex gap-2 items-center h-full">
-          {selectedId !== 1 && (
+          {selectedId !== 1 && selectedId !== 4 && selectedId !== 7 && (
             <motion.div
               className="cursor-pointer absolute left-5 w-16"
               onClick={() => {
@@ -310,7 +313,7 @@ export default function Exp() {
               alt="Site MadeiraMadeira para cliente na página inicial com dois produtos para ser agendado a data de montagem"
             />
           )}
-          {selectedId !== 8 && (
+          {selectedId !== 3 && selectedId !== 6 && selectedId !== 8 && (
             <motion.div
               className="cursor-pointer absolute right-5 w-16"
               onClick={() => {

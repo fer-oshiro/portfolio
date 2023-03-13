@@ -22,11 +22,6 @@ const Header = () => {
     >
       <header className="flex items-center">
         <div className="text-3xl mr-auto max-w-[9ch] md:max-w-full flex gap-2">
-          <img
-            src="/icon.svg"
-            alt="Fernanda Oshiro"
-            className="w-10 h-w-10 hidden md:block"
-          />
           <h1 className={fredericka.className}>Fernanda Oshiro</h1>
         </div>
         <nav>

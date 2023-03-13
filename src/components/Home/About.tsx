@@ -33,8 +33,6 @@ export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  console.log(isInView);
-
   return (
     <motion.section
       id="about"
