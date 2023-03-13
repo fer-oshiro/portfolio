@@ -50,7 +50,6 @@ const slashMotion = {
 
 export default function Exp() {
   const [selectedId, setSelectedId] = useState<keys | null>(null);
-  console.log(selectedId);
 
   return (
     <section id="experience" className="pt-16 p-8 md:p-16">
